@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteo de Participantes</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- LINKS JAVASCRIPT -->
+    <script src="js/script.js"></script>
+    <script src="js/mensajes.js"></script>
+
+    <!-- Proyecto Javascript PRE-ENTREGA 2: Sorteo para promoción de viajes.
+            Se realizará un sorteo con la compra de determinados artículos.
+            Se deberá ingresar el nombre, el número de factura de compra (aquí simulado con una cifra), y elegir un destino entre tres opciones.
+            Mediante un botón en el html, se ingresan los datos del participante.
+            Mediante otro botón, se pueden visualizar los participantes en modalidad de Cards.
+            Y con otro botón se realiza el sorteo entre todos los participantes.
+            El sistema devuelve:
+            a) El nombre del ganador y el destino elegido.
+            b) Un listado con los participantes con el número de factura y el destino elegido.
+            c) Los tres clientes con mayores importes en las facturas para utilizarlos en premios secundarios, (para el proyecto final) -->
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>PROMO: Sorteamos un ROAD TRIP</h1>
+
+      <!-- Formulario para ingresar participantes -->
+      <div id="formulario">
+        <h2>Ingres&aacute; los datos de los participantes</h2>
+        <br /><br />
+
+        <form id="participanteForm">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" required /><br /><br />
+
+          <label for="factura">Factura:</label>
+          <input type="text" id="factura" required /><br /><br />
+
+          <label for="destino">Destino:</label>
+          <select id="destino" required>
+            <option value="Rocha">Rocha</option>
+            <option value="Colonia">Colonia</option>
+            <option value="Minas">Minas</option>
+          </select>
+          <br /><br />
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="agregarParticipante()"
+          >
+            Agregar Participante
+          </button>
+        </form>
+        <br />
+        <!-- Mensaje de agregar participantes -->
+        <p id="mensaje-participantes" class="alert"></p>
+      </div>
+
+      <!-- Mostrar participantes -->
+      <div id="participantes">
+        <h2>Participantes</h2>
+        <div id="participantesLista"></div>
+      </div>
+
+      <!-- Botón para realizar el sorteo -->
+      <button id="sorteoBtn" class="btn btn-success" onclick="realizarSorteo()">
+        Realizar Sorteo
+      </button>
+      <br /><br />
+      <!-- Mensaje del sorteo -->
+      <p id="mensaje-sorteo" class="alert"></p>
+
+      <!-- INDICADOR de CARGA - LOADER SIMULADO
+            <div id="contenedor_carga">
+                <div id="loader"></div>
+            </div> -->
+
+      <div id="resultadoSorteo"></div>
+    </div>
+
+    <!-- Boostrap SCRIPT -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
